@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Flight | Astral Flights</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Horizon&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="Home page.html">
+            <img src="./Assets/logo.png" alt="Astral Flights Logo" class="logo">
+        </a>
+        <h1 class="horizon-font">Astral Flights</h1>
+    </header>
+
+    <div class="container">
+        <h2>Book a Flight</h2>
+        <form id="booking-form" action="./submit_flight.php" method="POST">
+            <!-- Destination Selection -->
+            <label for="destination">Preferred Destination</label>
+            <select id="destination" name="destination" required>
+                <option value="">Select your destination</option>
+                <option value="mars">Aurora Prime</option>
+                <option value="moon">Nebula Heaven</option>
+                <option value="europa">Zenith City</option>
+                <option value="titan">Elysium Fields</option>
+                <option value="stellar-lagoon">Stellar Lagoon</option>
+                <option value="galactic-museum">Galactic Museum</option>
+                <option value="crater-springs">Crater Springs</option>
+                <option value="nova-falls">Nova Falls</option>
+                <option value="astro-ridge">Astro Ridge</option>
+                <option value="lunar-oasis">Lunar Oasis</option>
+            </select>
+
+            <!-- Fleet Preference -->
+            <label for="fleet">Fleet Selection</label>
+            <select id="fleet" name="fleet" required>
+                <option value="">Select your fleet</option>
+                <option value="Celestial Cruiser (Model: Astra-1)">Celestial Cruiser (Model: Astra-1)</option>
+                <option value="Nebula Navigator (Model: Nova-7)">Nebula Navigator (Model: Nova-7)</option>
+                <option value="Galactic Voyager (Model: Orion-X2)">Galactic Voyager (Model: Orion-X2)</option>
+                <option value="Stellar Pioneer (Model: Pulsar-5)">Stellar Pioneer (Model: Pulsar-5)</option>
+                <option value="Cosmic Explorer (Model: Vega-9)">Cosmic Explorer (Model: Vega-9)</option>
+                <option value="Quantum Quest (Model: Quasar-3)">Quantum Quest (Model: Quasar-3)</option>
+                <option value="Eclipse Endeavor (Model: Eclipse-8)">Eclipse Endeavor (Model: Eclipse-8)</option>
+                <option value="Solar Seeker (Model: Helios-6)">Solar Seeker (Model: Helios-6)</option>
+                <option value="Lunar Liner (Model: Selene-4)">Lunar Liner (Model: Selene-4)</option>
+                <option value="Astro Adventurer (Model: Star-11)">Astro Adventurer (Model: Star-11)</option>
+                
+           
+            </select>
+
+        
+
+            <!-- Seat Selection Section -->
+            <label for="seat-position">Select Your Seat</label>
+            <div class="seat-layout">
+                <div class="seat-row">
+                    <div class="seat" data-seat="1A"></div>
+                    <div class="seat" data-seat="1B"></div>
+                </div>
+                <div class="seat-row">
+                    <div class="seat" data-seat="2A"></div>
+                    <div class="seat" data-seat="2B"></div>
+                </div>
+            </div>
+            <input type="hidden" id="selected-seat" name="selected_seat" value="" required>
+
+            <!-- Travel Dates -->
+            <label for="departure-date">Preferred Departure Date</label>
+            <input type="date" id="departure-date" name="departure_date" required>
+
+            <label for="return-date">Return Date (Optional)</label>
+            <input type="date" id="return-date" name="return_date">
+
+            <!-- Flight Duration -->
+            <label for="flight-duration">Preferred Flight Duration</label>
+            <select id="flight-duration" name="flight_duration" required>
+                <option value="">Select your flight duration</option>
+                <option value="direct">Direct Flight</option>
+                <option value="stopover">Flight with Stopover</option>
+            </select>
+
+            <!-- Meal Preference -->
+            <label for="meal-preference">Meal Preference</label>
+            <select id="meal-preference" name="meal_preference" required>
+                <option value="">Select your meal preference</option>
+                <option value="regular">Regular</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+            </select>
+
+            <!-- Accessibility Needs -->
+            <label for="accessibility">Accessibility Needs</label>
+            <select id="accessibility" name="accessibility_needs">
+                <option value="">Select your accessibility needs</option>
+                <option value="none">None</option>
+                <option value="wheelchair">Wheelchair Access</option>
+                <option value="visual-aid">Visual Aid</option>
+            </select>
+
+            <!-- Baggage Options -->
+            <label for="baggage">Baggage Allowance</label>
+            <select id="baggage" name="baggage_allowance" required>
+                <option value="">Select your baggage allowance</option>
+                <option value="light">Light (up to 20kg)</option>
+                <option value="medium">Medium (20-50kg)</option>
+                <option value="heavy">Heavy (50kg+)</option>
+            </select>
+
+            <!-- In-flight Amenities -->
+            <label for="entertainment">Entertainment Choices</label>
+            <select id="entertainment" name="entertainment_choices">
+                <option value="">Select your entertainment choices</option>
+                <option value="movies">Movies</option>
+                <option value="games">Games</option>
+                <option value="reading">Reading</option>
+            </select>
+
+            <label for="services">Additional Services</label>
+            <select id="services" name="additional_services">
+                <option value="">Select additional services</option>
+                <option value="wifi">Wi-Fi</option>
+                <option value="space-suit">Space Suit</option>
+            </select>
+
+            <!-- Insurance Options -->
+            <label for="insurance">Travel Insurance</label>
+            <select id="insurance" name="insurance_options">
+                <option value="">Select your insurance level</option>
+                <option value="basic">Basic</option>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+            </select>
+
+            <!-- Additional Comments -->
+            <label for="comments">Additional Preferences or Comments</label>
+            <textarea id="comments" name="additional_comments" rows="4" placeholder="Specify any other preferences or requirements..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit" class="button">Submit Your Booking</button>
+        </form>
+    </div>
+
+    <script>
+      const seats = document.querySelectorAll('.seat');
+const selectedSeatInput = document.getElementById('selected-seat');
+const departureDateInput = document.getElementById('departure-date');
+const fleetInput = document.getElementById('fleet');
+const destinationInput = document.getElementById('destination');
+
+function resetSeatSelection() {
+    
+    seats.forEach(seat => seat.classList.remove('selected'));
+    selectedSeatInput.value = '';
+}
+
+function updateAvailableSeats() {
+    
+    resetSeatSelection();
+
+    const departureDate = departureDateInput.value;
+    const fleet = fleetInput.value;
+    const destination = destinationInput.value;
+
+    if (departureDate && fleet && destination) {
+        seats.forEach(seat => {
+            const seatId = seat.dataset.seat;
+            checkSeatAvailability(seatId, departureDate, fleet, destination).then(isAvailable => {
+                if (isAvailable) {
+                    seat.classList.remove('unavailable');
+                } else {
+                    seat.classList.add('unavailable');
+                }
+            });
+        });
+    }
+}
+
+
+departureDateInput.addEventListener('change', updateAvailableSeats);
+fleetInput.addEventListener('change', updateAvailableSeats);
+destinationInput.addEventListener('change', updateAvailableSeats);
+
+seats.forEach(seat => {
+    
+    seat.addEventListener('click', () => {
+        if (seat.classList.contains('unavailable')) {
+            alert('This seat is not available. Please select another seat.');
+        } else {
+            
+            seats.forEach(s => s.classList.remove('selected'));
+
+            
+            seat.classList.add('selected');
+
+            
+            selectedSeatInput.value = seat.dataset.seat;
+        }
+    });
+});
+
+async function checkSeatAvailability(seatId, departureDate, fleet, destination) {
+    
+
+    return Math.random() > 0.5; 
+}
+
+
+        
+    </script>
+</body>
+</html>
